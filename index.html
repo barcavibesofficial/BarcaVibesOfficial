@@ -16,7 +16,132 @@ padding:0;
 box-sizing:border-box;
 font-family:Arial, sans-serif;
 }
+<!-- LIVE FAN CHAT -->
+<section class="card" id="chat">
 
+<h2>💬 Culers Live Chat</h2>
+
+<div id="messages" style="
+height:300px;
+overflow-y:auto;
+background:#eee;
+padding:15px;
+border-radius:10px;">
+</div>
+
+
+<input id="name" placeholder="Your name"
+style="width:100%;padding:10px;margin-top:10px;">
+
+
+<input id="message" placeholder="Write a message..."
+style="width:100%;padding:10px;margin-top:10px;">
+
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+
+</section>
+
+
+<script type="module">
+
+import { initializeApp } from 
+"https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+
+import { getDatabase, ref, push, onValue }
+from 
+"https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+
+// Replace with your Firebase details
+
+const firebaseConfig = {
+
+apiKey: "YOUR_API_KEY",
+
+authDomain: "YOUR_PROJECT.firebaseapp.com",
+
+databaseURL: "YOUR_DATABASE_URL",
+
+projectId: "YOUR_PROJECT_ID",
+
+storageBucket: "YOUR_PROJECT.appspot.com",
+
+messagingSenderId: "YOUR_ID",
+
+appId: "YOUR_APP_ID"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase(app);
+
+
+const chatRef = ref(db,"chat");
+
+
+window.sendMessage=function(){
+
+let name=document.getElementById("name").value;
+
+let msg=document.getElementById("message").value;
+
+
+if(name && msg){
+
+push(chatRef,{
+
+name:name,
+
+message:msg,
+
+time:Date.now()
+
+});
+
+
+document.getElementById("message").value="";
+
+}
+
+};
+
+
+
+onValue(chatRef,(snapshot)=>{
+
+
+let box=document.getElementById("messages");
+
+box.innerHTML="";
+
+
+snapshot.forEach((child)=>{
+
+
+let data=child.val();
+
+
+box.innerHTML += 
+`
+<p>
+<b>${data.name}</b>: ${data.message}
+</p>
+`;
+
+
+});
+
+
+});
+
+
+</script>
 body{
 background:#f4f4f4;
 color:#222;
