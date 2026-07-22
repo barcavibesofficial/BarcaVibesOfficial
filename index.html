@@ -1,1 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>BarcaVibesOfficial | FC Barcelona Fan Community</title>
+
+<meta name="description" content="BarcaVibesOfficial is an independent FC Barcelona fan community sharing fan content, wallpapers and football discussions.">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#f4f4f4;
+color:#222;
+}
+
+header{
+background:linear-gradient(135deg,#004d98,#a50044);
+color:white;
+text-align:center;
+padding:45px 20px;
+}
+
+header h1{
+font-size:40px;
+}
+
+header p{
+font-size:18px;
+margin-top:10px;
+}
+
+
+nav{
+background:#111;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:10px;
+font-weight:bold;
+}
+
+
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+}
+
+
+.card{
+background:white;
+margin:25px 0;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px #ccc;
+}
+
+
+button,.btn{
+
+display:inline-block;
+background:#a50044;
+color:white;
+padding:12px 25px;
+border-radius:30px;
+text-decoration:none;
+margin-top:15px;
+
+}
+
+
+
+.ad{
+
+background:#eee;
+padding:35px;
+text-align:center;
+border-radius:10px;
+margin:20px 0;
+
+}
+
+
+
+/* Gallery */
+
+.gallery{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+
+}
+
+
+.gallery img{
+
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:12px;
+
+}
+
+
+
+.gallery-box{
+
+background:#ddd;
+height:200px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:12px;
+
+}
+
+
+
+
+input[type=file]{
+
+margin:15px 0;
+
+}
+
+
+
+footer{
+
+background:#111;
+color:white;
+text-align:center;
+padding:30px;
+
+}
+
+
+
+.small{
+
+font-size:14px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>BarcaVibesOfficial 💙❤️</h1>
+
+<p>Independent FC Barcelona Fan Community</p>
+
+</header>
+
+
+
+<nav>
+
+<a href="#home">Home</a>
+<a href="#gallery">Gallery</a>
+<a href="#posts">Posts</a>
+<a href="#about">About</a>
+
+</nav>
+
+
+
+<div class="container">
+
+
+
+<section id="home" class="card">
+
+<h2>Welcome Culers 🔵🔴</h2>
+
+<p>
+Welcome to BarcaVibesOfficial, a fan-made community for FC Barcelona supporters.
+Here we share football vibes, fan creations, wallpapers and discussions.
+</p>
+
+
+<a class="btn" href="https://www.instagram.com/im_daneef" target="_blank">
+Follow Instagram
+</a>
+
+
+</section>
+
+
+
+
+<div class="ad">
+
+Advertisement Area<br>
+
+(Place Google AdSense code after approval)
+
+</div>
+
+
+
+
+
+<section id="gallery" class="card">
+
+<h2>Fan Gallery 📸</h2>
+
+<p>
+Upload and display your own fan artwork, wallpapers and designs.
+</p>
+
+
+<input type="file" id="upload" accept="image/*">
+
+
+<div class="gallery" id="galleryBox">
+
+<div class="gallery-box">
+Your Fan Image
+</div>
+
+<div class="gallery-box">
+Your Fan Image
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section id="posts" class="card">
+
+<h2>Latest Fan Posts ⚽</h2>
+
+
+<h3>🔥 Barca Match Discussions</h3>
+<p>
+Share your opinions about matches, players and football moments.
+</p>
+
+
+<br>
+
+
+<h3>💙 Fan Memories</h3>
+<p>
+Celebrate unforgettable Barcelona moments with the community.
+</p>
+
+
+</section>
+
+
+
+
+
+<section id="about" class="card">
+
+<h2>About BarcaVibesOfficial</h2>
+
+
+<p>
+
+BarcaVibesOfficial is an independent fan website created by supporters.
+This website is not affiliated with, sponsored by, or officially connected
+to FC Barcelona.
+
+</p>
+
+
+</section>
+
+
+
+
+<div class="ad">
+
+Advertisement Area
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+<footer>
+
+
+<p>© 2026 BarcaVibesOfficial</p>
+
+
+<a class="btn" href="https://www.instagram.com/im_daneef" target="_blank">
+Instagram
+</a>
+
+
+<p class="small">
+
+Independent fan website. All trademarks belong to their respective owners.
+
+</p>
+
+
+</footer>
+
+
+
+
+<script>
+
+
+const upload=document.getElementById("upload");
+const gallery=document.getElementById("galleryBox");
+
+
+upload.onchange=function(){
+
+const file=this.files[0];
+
+if(file){
+
+const img=document.createElement("img");
+
+img.src=URL.createObjectURL(file);
+
+gallery.appendChild(img);
+
+}
+
+}
+
+
+</script>
+
+
+
+</body>
+</html>
